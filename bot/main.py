@@ -5,6 +5,8 @@ from discord_slash.utils.manage_commands import create_option, create_permission
 from discord_slash.model import SlashCommandPermissionType
 from dotenv import load_dotenv
 import os
+import random
+import asyncio
 
 load_dotenv()
 token = os.getenv("TOKEN")
@@ -13,6 +15,21 @@ bot = commands.Bot(command_prefix='prefix', intents=discord.Intents.all())
 slash = SlashCommand(bot, sync_commands=True, override_type=True)
 
 guild_ids = [918591198799749240]
+
+async def changePres():
+    await bot.wait_until_ready()
+    statuses = ["Sharpies ≠ Markers", "Animal Crossing Takeover!"]
+    await bot.change_presence()
+    while not bot.is_closed():
+        status = random.choice(statuses)
+        await bot.change_presence(
+            status=discord.Status.online,
+            activity=discord.Activity(
+                type=discord.ActivityType.playing,
+                name=f"{status}"))
+
+        await asyncio.sleep(8)
+bot.loop.create_task(changePres())
 
 @bot.event
 async def on_ready():
