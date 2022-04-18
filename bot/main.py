@@ -44,8 +44,7 @@ async def _ping(ctx):
 
 @slash.slash(name="playlist", description="Sends a link to the robotics playlist on Spotify", guild_ids=guild_ids)
 async def _playlist(ctx):
-    embed = discord.Embed(description="**Quick Disclaimer:** [This playlist](https://open.spotify.com/playlist/3S9LxhvckvM5CNMF7nhxmc?si=d37db241881d468d) is a compilation of everyone's different music tastes which means it'll mess with your head in ways you couldn't imagine so listening to it is done at your own risk.", color=discord.Color.from_rgb(255,153,0))
-    await ctx.send(embed=embed)
+    await ctx.send("**Quick Disclaimer:** This playlist is a compilation of everyone's different music tastes which means it'll mess with your head in ways you couldn't imagine so listening to it is done at your own risk.\n\nhttps://open.spotify.com/playlist/3S9LxhvckvM5CNMF7nhxmc?si=d37db241881d468d")
 
 @slash.slash(name="annoy", description="Annoy someone", guild_ids = guild_ids, options=[
     create_option (
