@@ -1,3 +1,4 @@
+from turtle import color
 import discord
 from discord.ext import commands
 from discord_slash import SlashCommand
@@ -86,5 +87,15 @@ async def _reply(ctx, messageid, message: str):
     channel = ctx.channel
     msg = await channel.fetch_message(messageid)
     await msg.reply(f"{message}")
+
+@slash.slash(name="schedule", description="Sends robotics schedule", guild_ids=guild_ids, options=[])
+async def _schedule(ctx):
+    embed = discord.Embed(title="Robotics Club Schedule")
+    embed.add_field(name='Monday', value='No Robotics', inline=False)
+    embed.add_field(name='Tuesday', value='3:00 - When everyone leaves', inline=False)
+    embed.add_field(name='Wednesday', value='3:00 - When everyone leaves', inline=False)
+    embed.add_field(name='Thursday', value='3:00 - When everyone leaves', inline=False)
+    embed.add_field(name='Friday', value='3:00 - No Robotics', inline=False)
+    await ctx.send(embed=embed)
 
 bot.run(token)
