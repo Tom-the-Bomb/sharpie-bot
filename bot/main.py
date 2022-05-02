@@ -60,17 +60,6 @@ async def _playlist(ctx):
         required=True
     )
 ])
-@slash.permission(guild_id=918591198799749240,
-                    permissions=[
-                        create_permission(918591198799749240,
-                                            SlashCommandPermissionType.ROLE, False),
-                        create_permission(918640986618486794,
-                                            SlashCommandPermissionType.ROLE, True),
-                        create_permission(918638863516328056,
-                                            SlashCommandPermissionType.ROLE, True),
-                        create_permission(962812802840539136,
-                                            SlashCommandPermissionType.ROLE, True),
-                ])
 async def annoy(ctx, user, amount):
     if amount > 10:
         await ctx.send("That's just too far")
@@ -93,17 +82,6 @@ async def annoy(ctx, user, amount):
         required=True
     ),
 ])
-@slash.permission(guild_id=918591198799749240,
-                    permissions=[
-                        create_permission(918591198799749240,
-                                            SlashCommandPermissionType.ROLE, False),
-                        create_permission(918640986618486794,
-                                            SlashCommandPermissionType.ROLE, True),
-                        create_permission(918638863516328056,
-                                            SlashCommandPermissionType.ROLE, True),
-                        create_permission(962812802840539136,
-                                            SlashCommandPermissionType.ROLE, True),
-                    ])
 async def _reply(ctx, messageid, message: str):
     channel = ctx.channel
     msg = await channel.fetch_message(messageid)
