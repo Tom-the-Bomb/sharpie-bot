@@ -1,13 +1,11 @@
-from turtle import color
 import discord
+import os
+import asyncio
+import random
+from dotenv import load_dotenv
+from discord.ext.commands import bot
 from discord.ext import commands
 from discord_slash import SlashCommand
-from discord_slash.utils.manage_commands import create_option, create_permission
-from discord_slash.model import SlashCommandPermissionType
-from dotenv import load_dotenv
-import os
-import random
-import asyncio
 
 load_dotenv()
 token = os.getenv("TOKEN")
@@ -39,63 +37,9 @@ async def on_ready():
     print(bot.user.id)
     print('------')
 
-@slash.slash(name="ping", description="Shows bot latency", guild_ids=guild_ids)
-async def _ping(ctx):
-    await ctx.send(f"🌍 Ping is `{round(bot.latency * 1000)}ms`")
-
-@slash.slash(name="playlist", description="Sends a link to the robotics playlist on Spotify", guild_ids=guild_ids)
-async def _playlist(ctx):
-    await ctx.send("**Quick Disclaimer:** This playlist is a compilation of everyone's different music tastes which means it'll mess with your head in ways you couldn't imagine so listening to it is done at your own risk.\n\nhttps://open.spotify.com/playlist/3S9LxhvckvM5CNMF7nhxmc?si=d37db241881d468d")
-
-@slash.slash(name="annoy", description="Annoy someone", guild_ids = guild_ids, options=[
-    create_option (
-        name="user",
-        description="The user to annoy",
-        option_type=6,
-        required=True
-    ),
-    create_option (
-        name="amount",
-        description="The amount of times to annoy the user",
-        option_type=4,
-        required=True
-    )
-])
-async def annoy(ctx, user, amount):
-    if amount > 10:
-        await ctx.send("That's just too far")
-        return
-    else:
-        for i in range(int(amount)):
-            await ctx.send(f"{user.mention}")
-
-@slash.slash(name="reply", description="Heheh", guild_ids=guild_ids, options=[
-    create_option(
-        name="messageid",
-        description="Message ID to reply to",
-        option_type=3,
-        required=True
-    ),
-    create_option(
-        name="message",
-        description="Message",
-        option_type=3,
-        required=True
-    ),
-])
-async def _reply(ctx, messageid, message: str):
-    channel = ctx.channel
-    msg = await channel.fetch_message(messageid)
-    await msg.reply(f"{message}")
-
-@slash.slash(name="schedule", description="Sends robotics schedule", guild_ids=guild_ids, options=[])
-async def _schedule(ctx):
-    embed = discord.Embed(title="Robotics Club Schedule")
-    embed.add_field(name='Monday', value='No Robotics', inline=False)
-    embed.add_field(name='Tuesday', value='3:00 - When everyone leaves', inline=False)
-    embed.add_field(name='Wednesday', value='3:00 - When everyone leaves', inline=False)
-    embed.add_field(name='Thursday', value='3:00 - When everyone leaves', inline=False)
-    embed.add_field(name='Friday', value='3:00 - No Robotics', inline=False)
-    await ctx.send(embed=embed)
+for filename in os.listdir('./commands'):
+    if filename.endswith('.py'):
+        print(f'Loaded Command: {filename[:-3]}')
+        bot.load_extension(f'commands.{filename[:-3]}')
 
 bot.run(token)
