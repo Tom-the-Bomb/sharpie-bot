@@ -17,7 +17,7 @@ async def _schedule(ctx):
     embed.add_field(name='Tuesday', value='3:00 - When everyone leaves', inline=False)
     embed.add_field(name='Wednesday', value='3:00 - When everyone leaves', inline=False)
     embed.add_field(name='Thursday', value='3:00 - When everyone leaves', inline=False)
-    embed.add_field(name='Friday', value='3:00 - No Robotics', inline=False)
+    embed.add_field(name='Friday', value='3:00 - When everyone leaves earlier', inline=False)
     await ctx.send(embed=embed)
 
 
