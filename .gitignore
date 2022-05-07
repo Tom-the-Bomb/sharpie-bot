@@ -1,3 +1,4 @@
 .env
 .env.exmple
 *.pyc
+.vscode
