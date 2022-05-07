@@ -25,7 +25,7 @@ class annoy(commands.Cog):
             required=True
         )
     ])
-    async def annoy(ctx, user, amount):
+    async def annoy(self, ctx, user, amount):
         if amount > 10:
             await ctx.send("That's just too far")
             return

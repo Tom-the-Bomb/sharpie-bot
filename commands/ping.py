@@ -11,8 +11,8 @@ class ping(commands.Cog):
         self.bot = bot
 
     @cog_ext.cog_slash(name="ping", description="Shows bot latency", guild_ids=guild_ids)
-    async def _ping(ctx):
-        await ctx.send(f"🌍 Ping is `{round(bot.latency * 1000)}ms`")
+    async def _ping(self, ctx):
+        await ctx.send(f"🌍 Ping is `{round(bot.latency)}ms`")
 
 def setup(bot):
     bot.add_cog(ping(bot))
