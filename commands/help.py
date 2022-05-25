@@ -17,6 +17,7 @@ class help(commands.Cog):
         embed.add_field(name="Ping", value="`/ping` \n Shows <@963255439963869244>'s latency", inline=False)
         embed.add_field(name="Playlist Link", value="`/playlist` \n Sends the link to the robotics Spotify playlist", inline=False)
         embed.add_field(name="Schedule", value="`/schedule` \n Sends an embed with the schedule for the robotics meetings", inline=False)
+        embed.add_field(name="Images Link", value="`/images` \n Sends an embed with the link to the Google Drive folder with all the photos", inline=False)
         await ctx.send(embed=embed)
 
 def setup(bot):
