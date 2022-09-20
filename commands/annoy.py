@@ -1,27 +1,21 @@
-import discord
-from discord.ext import commands
-from discord_slash import cog_ext
-from discord_slash.utils.manage_commands import create_option
-
+import interactions
 guild_ids = [918591198799749240]
 
-bot = commands.Bot(command_prefix='prefix', intents=discord.Intents.all())
-
-class annoy(commands.Cog):
+class annoy(interactions.Extension):
     def __init__(self, bot):
-        self.bot = bot
+        self.bot: interactions.Client = bot
 
-    @cog_ext.cog_slash(name="annoy", description="Annoy someone", guild_ids = guild_ids, options=[
-        create_option (
+    @interactions.extension_command(name="annoy", description="Annoy someone", options=[
+        interactions.Option (
             name="user",
             description="The user to annoy",
-            option_type=6,
+            type=interactions.OptionType.USER,
             required=True
         ),
-        create_option (
+        interactions.Option (
             name="amount",
             description="The amount of times to annoy the user",
-            option_type=4,
+            type=interactions.OptionType.INTEGER,
             required=True
         )
     ])
@@ -34,4 +28,4 @@ class annoy(commands.Cog):
                 await ctx.send(f"{user.mention}")
 
 def setup(bot):
-    bot.add_cog(annoy(bot))
+    annoy(bot)

@@ -1,18 +1,14 @@
-import discord
-from discord.ext import commands
-from discord_slash import cog_ext
+import interactions
 
 guild_ids = [918591198799749240]
 
-bot = commands.Bot(command_prefix='prefix', intents=discord.Intents.all())
-
-class ping(commands.Cog):
+class ping(interactions.Extension):
     def __init__(self, bot):
-        self.bot = bot
+        self.bot: interactions.Client = bot
 
-    @cog_ext.cog_slash(name="ping", description="Shows bot latency", guild_ids=guild_ids)
+    @interactions.extension_command(name="ping", description="Shows bot latency")
     async def _ping(self, ctx):
         await ctx.send("Hello! I'm Sharpie!")
 
 def setup(bot):
-    bot.add_cog(ping(bot))
+    ping(bot)
