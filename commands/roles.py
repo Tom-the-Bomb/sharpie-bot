@@ -9,42 +9,42 @@ class roles(interactions.Extension):
     @interactions.extension_command(name="roles", description="Sends role selector")
     async def _roles(self, ctx):
         manufacturingBtn = interactions.Button(
-        style=interactions.ButtonStyle.SECONDARY,
+        style=interactions.ButtonStyle.PRIMARY,
         label="Manufacturing Team",
         emoji=interactions.Emoji(name="🛠️"),
         custom_id="manufacturing",
         scope=guild_ids
         )
         electricalBtn = interactions.Button(
-        style=interactions.ButtonStyle.SECONDARY,
+        style=interactions.ButtonStyle.PRIMARY,
         label="Electrical Team",
         emoji=interactions.Emoji(name="⚡"),
         custom_id="electrical",
         scope=guild_ids
         )
         designBtn = interactions.Button(
-        style=interactions.ButtonStyle.SECONDARY,
+        style=interactions.ButtonStyle.PRIMARY,
         label="Design Team",
         emoji=interactions.Emoji(name="✏️"),
         custom_id="design",
         scope=guild_ids
         )
         programmingBtn = interactions.Button(
-        style=interactions.ButtonStyle.SECONDARY,
+        style=interactions.ButtonStyle.PRIMARY,
         label="Programming Team",
         emoji=interactions.Emoji(name="🖥️"),
         custom_id="programming",
         scope=guild_ids
         )
         businessBtn = interactions.Button(
-        style=interactions.ButtonStyle.SECONDARY,
+        style=interactions.ButtonStyle.PRIMARY,
         label="Business Team",
         emoji=interactions.Emoji(name="💰"),
         custom_id="business",
         scope=guild_ids
         )
         mediaBtn = interactions.Button(
-        style=interactions.ButtonStyle.SECONDARY,
+        style=interactions.ButtonStyle.PRIMARY,
         label="Media Team",
         emoji=interactions.Emoji(name="📸"),
         custom_id="media",
