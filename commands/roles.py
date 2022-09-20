@@ -104,7 +104,7 @@ class roles(interactions.Extension):
             await ctx.send(embeds=roleAdded, ephemeral=True)
 
     @interactions.extension_component("programming")
-    async def design_button(self, ctx):
+    async def programming_button(self, ctx):
         await ctx.get_guild()
         role = int(918634815140556842)
         if role in ctx.author.roles:
@@ -117,7 +117,7 @@ class roles(interactions.Extension):
             await ctx.send(embeds=roleAdded, ephemeral=True)
 
     @interactions.extension_component("business")
-    async def design_button(self, ctx):
+    async def business_button(self, ctx):
         await ctx.get_guild()
         role = int(918634627055353906)
         if role in ctx.author.roles:
@@ -130,7 +130,7 @@ class roles(interactions.Extension):
             await ctx.send(embeds=roleAdded, ephemeral=True)
 
     @interactions.extension_component("media")
-    async def design_button(self, ctx):
+    async def media_button(self, ctx):
         await ctx.get_guild()
         role = int(982774976287506442)
         if role in ctx.author.roles:
@@ -143,7 +143,7 @@ class roles(interactions.Extension):
             await ctx.send(embeds=roleAdded, ephemeral=True)
 
     @interactions.extension_component("heHim")
-    async def design_button(self, ctx):
+    async def heHim_button(self, ctx):
         await ctx.get_guild()
         role = int(1021591068774502511)
         if role in ctx.author.roles:
@@ -156,7 +156,7 @@ class roles(interactions.Extension):
             await ctx.send(embeds=roleAdded, ephemeral=True)
 
     @interactions.extension_component("sheHer")
-    async def design_button(self, ctx):
+    async def sheHer_button(self, ctx):
         await ctx.get_guild()
         role = int(1021591222789357590)
         if role in ctx.author.roles:
@@ -169,7 +169,7 @@ class roles(interactions.Extension):
             await ctx.send(embeds=roleAdded, ephemeral=True)
 
     @interactions.extension_component("theyThem")
-    async def design_button(self, ctx):
+    async def theyThem_button(self, ctx):
         await ctx.get_guild()
         role = int(1021591254020149268)
         if role in ctx.author.roles:
@@ -182,7 +182,7 @@ class roles(interactions.Extension):
             await ctx.send(embeds=roleAdded, ephemeral=True)
 
     @interactions.extension_component("any")
-    async def design_button(self, ctx):
+    async def any_button(self, ctx):
         await ctx.get_guild()
         role = int(1021591277009109032)
         if role in ctx.author.roles:

@@ -3,8 +3,6 @@ import interactions
 guild_ids = [918591198799749240]
 
 
-
-
 class help(interactions.Extension):
     def __init__(self, bot):
         self.bot: interactions.Client = bot
