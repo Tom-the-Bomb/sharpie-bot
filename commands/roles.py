@@ -15,6 +15,13 @@ class roles(interactions.Extension):
         custom_id="manufacturing",
         scope=guild_ids
         )
+        electricalBtn = interactions.Button(
+        style=interactions.ButtonStyle.SECONDARY,
+        label="Electrical Team",
+        emoji=interactions.Emoji(name="⚡"),
+        custom_id="electrical",
+        scope=guild_ids
+        )
         designBtn = interactions.Button(
         style=interactions.ButtonStyle.SECONDARY,
         label="Design Team",
@@ -67,7 +74,7 @@ class roles(interactions.Extension):
         custom_id="any",
         scope=guild_ids
         )
-        teamRow = interactions.spread_to_rows(manufacturingBtn, designBtn, programmingBtn, businessBtn, mediaBtn)
+        teamRow = interactions.spread_to_rows(manufacturingBtn, electricalBtn, designBtn, programmingBtn, businessBtn, mediaBtn)
         pronounRow = interactions.spread_to_rows(heHim, sheHer, theyThem, any)
         embedOne = interactions.Embed(description=f"👋 Hi! Welcome to the NSS Robotics Discord server! Please use the buttons below to grab various roles for both your positon/positions on the team as well as your preferred pronouns. You can pick as many as you'd like for both!\n\nThe buttons are toggles so clicking them once will give you the role and clicking them again will take the role away", color=0x5ccbff)
         embedTwo = interactions.Embed(description=f"🙋 **Sub-Team Roles**", color=0x5ccbff)
@@ -87,6 +94,19 @@ class roles(interactions.Extension):
             await ctx.send(embeds=roleRemoved, ephemeral=True)
         else:
             roleAdded = interactions.Embed(description=f"✅ You've been added to the Manufacturing Team!", color=0x76b154)
+            await ctx.author.add_role(role, ctx.guild.id)
+            await ctx.send(embeds=roleAdded, ephemeral=True)
+
+    @interactions.extension_component("electrical")
+    async def electrical_button(self, ctx):
+        await ctx.get_guild()
+        role = int(1021608042023878716)
+        if role in ctx.author.roles:
+            roleRemoved = interactions.Embed(description=f"❌ You've been removed from the Electrical Team!", color=0xd82d42)
+            await ctx.author.remove_role(role, ctx.guild.id)
+            await ctx.send(embeds=roleRemoved, ephemeral=True)
+        else:
+            roleAdded = interactions.Embed(description=f"✅ You've been added to the Electrical Team!", color=0x76b154)
             await ctx.author.add_role(role, ctx.guild.id)
             await ctx.send(embeds=roleAdded, ephemeral=True)
 
