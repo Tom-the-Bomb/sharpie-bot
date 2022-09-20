@@ -2,18 +2,15 @@ import interactions
 from interactions import Client, Intents
 import os
 from dotenv import load_dotenv
+import asyncio
+import random
 
 load_dotenv()
 token = os.getenv('TOKEN')
 
-bot = Client(token=os.getenv('TOKEN'), intents=Intents.GUILD_MESSAGE_CONTENT)
+bot = Client(token=os.getenv('TOKEN'), presence=interactions.ClientPresence(activities=[interactions.PresenceActivity(name="Drawing Tutorials", type=interactions.PresenceActivityType.WATCHING)]), intents=Intents.GUILD_MESSAGE_CONTENT)
 
 guild_ids = [918591198799749240]
-
-async def changePres():
-    await bot.wait_until_ready()
-    await bot.change_presence(interactions.ClientPresence(activities=[interactions.PresenceActivity(name='Against Pens',type=interactions.PresenceActivityType.GAME)]))
-
 
 @bot.event
 async def on_ready():
