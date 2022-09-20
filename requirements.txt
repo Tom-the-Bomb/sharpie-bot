@@ -1,4 +1,2 @@
-discord.py
-discord-py-slash-command
+interactions
 python-dotenv
-asyncio
